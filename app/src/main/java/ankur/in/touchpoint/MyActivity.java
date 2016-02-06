@@ -84,9 +84,9 @@ public class MyActivity extends Activity {
             super.onDraw(c);
 
             this.setBackgroundColor(Color.WHITE);
-           /* for (Object obj : strokes) {
+            for (Object obj : strokes) {
                 drawStroke((ArrayList) obj, c, color);
-            }*/
+            }
             drawCircles(c);
             drawStroke(points, c, color);
             color = 0;
@@ -115,8 +115,8 @@ public class MyActivity extends Activity {
 
             if (event.getActionMasked() == MotionEvent.ACTION_UP) {
 
-                this.strokes.add(points);
-                points = new ArrayList();
+                this.strokes.add(points.clone());
+                points.clear();
                 invalidate();
             }
             if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
