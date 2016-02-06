@@ -1,46 +1,24 @@
 language: android
 
-branches:
-  only:
-    - dev
-
-script: "./gradlew clean assembleDebug"
+jdk:
+  - oraclejdk7
 
 android:
   components:
-    # Uncomment the lines below if you want to
-    # use the latest revision of Android SDK Tools
-    - platform-tools
-    - tools
+    - android-23
+    - build-tools-23.0.1
 
-    # The BuildTools version used by your project
-    - build-tools-21.1.2
+# as per http://blog.travis-ci.com/2014-12-17-faster-builds-with-container-based-infrastructure/
+sudo: false
 
-    # The SDK version used to compile your project
-    - android-21
+# script for build and release via Travis to Bintray
+#script: gradle/buildViaTravis.sh
 
-    # Additional components
-    # - extra-google-google_play_services
-    # - extra-google-m2repository
-    - extra-android-m2repository
-    - addon-google_apis-google-19
-    - extra-android-support
+notifications:
+  email: false
 
-    # Specify at least one system image,
-    # if you need to run emulator(s) during your tests
-    # - sys-img-armeabi-v7a-android-19
-    # - sys-img-x86-android-17
-
-
-#language: android
-#android:
-#  components:
-#    - build-tools-21.1.2
-#    - android-L
-#    - sys-img-x86-android-tv-l
-#    - add-on
-#    - extra
-#  licenses:
-#    - 'android-sdk-preview-license-52d11cd2'
-#    - 'android-sdk-license-.+'
-#    - 'google-gdk-license-.+'
+# cache between builds
+cache:
+  directories:
+  - $HOME/.m2
+  - $HOME/.gradle
