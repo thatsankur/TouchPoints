@@ -64,7 +64,9 @@ public class MyActivity extends Activity {
             strokes = new ArrayList();
             paint = createPaint(Color.BLUE, 11);
             paint1 = createPaint(Color.GREEN, 11);
-            paint2 = createPaint(Color.RED, 11);
+            paint2 = createPaint(Color.BLACK, 11);
+            paint2.setAntiAlias(true);
+            paint2.setStyle(Paint.Style.FILL);
 
 
         }
@@ -97,7 +99,7 @@ public class MyActivity extends Activity {
             if (mCircles.size() > 0 ) {
                 for (int i = 0; i < mCircles.size(); i++) {
                     Point p=  mCircles.get(i);
-                    c.drawCircle(p.x, p.y,2, paint2);
+                    c.drawCircle(p.x, p.y,15, paint2);
                 }
             }
         }
